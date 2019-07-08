@@ -18,9 +18,6 @@ import {
   Users,
   Progress,
   Profit,
-  SalesChart,
-  DevicesChart,
-  ProductList,
   OrdersTable
 } from './components';
 
@@ -83,36 +80,9 @@ class Dashboard extends Component {
             </Grid>
             <Grid
               item
-              lg={8}
+              lg={12}
               md={12}
-              xl={9}
-              xs={12}
-            >
-              <SalesChart className={classes.item} />
-            </Grid>
-            <Grid
-              item
-              lg={4}
-              md={6}
-              xl={3}
-              xs={12}
-            >
-              <DevicesChart className={classes.item} />
-            </Grid>
-            <Grid
-              item
-              lg={4}
-              md={6}
-              xl={3}
-              xs={12}
-            >
-              <ProductList className={classes.item} />
-            </Grid>
-            <Grid
-              item
-              lg={8}
-              md={12}
-              xl={9}
+              xl={12}
               xs={12}
             >
               <OrdersTable className={classes.item} />

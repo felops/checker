@@ -2,36 +2,29 @@ import React, { Component } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 // Views
+import LandingPage from './views/LandingPage';
 import Dashboard from './views/Dashboard';
 import ProductList from './views/ProductList';
-import UserList from './views/UserList';
 import Typography from './views/Typography';
-import Icons from './views/Icons';
 import Account from './views/Account';
 import Settings from './views/Settings';
 import SignUp from './views/SignUp';
 import SignIn from './views/SignIn';
-import UnderDevelopment from './views/UnderDevelopment';
 import NotFound from './views/NotFound';
 
 export default class Routes extends Component {
   render() {
     return (
       <Switch>
-        <Redirect
+        <Route
+          component={LandingPage}
           exact
-          from="/"
-          to="/dashboard"
+          path="/"
         />
         <Route
           component={Dashboard}
           exact
           path="/dashboard"
-        />
-        <Route
-          component={UserList}
-          exact
-          path="/users"
         />
         <Route
           component={ProductList}
@@ -42,11 +35,6 @@ export default class Routes extends Component {
           component={Typography}
           exact
           path="/typography"
-        />
-        <Route
-          component={Icons}
-          exact
-          path="/icons"
         />
         <Route
           component={Account}
@@ -67,11 +55,6 @@ export default class Routes extends Component {
           component={SignIn}
           exact
           path="/sign-in"
-        />
-        <Route
-          component={UnderDevelopment}
-          exact
-          path="/under-development"
         />
         <Route
           component={NotFound}
