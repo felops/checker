@@ -11,7 +11,10 @@ export default theme => ({
     minHeight: 'auto',
     width: '100%'
   },
-  signInButton: {
+  actionButton: {
     marginLeft: 'auto'
+  },
+  signInButton: {
+    marginRight: '8px'
   },
 });

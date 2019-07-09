@@ -38,17 +38,26 @@ class Topbar extends Component {
               src="/images/logos/brainalytica_logo.svg"
             />
           </Link>
-          <Link
-            className={classes.signInButton}
-            to="/sign-in"
-          >
-            <Button
-              color="primary"
-              variant="contained"
+          <div className={classes.actionButton}>
+            <Link
+              className={classes.signInButton}
+              to="/sign-in"
             >
-              ENTRAR
-            </Button>
-          </Link>
+              <Button variant="outlined">
+                SIGN IN
+              </Button>
+            </Link>
+            <Link
+              to="/sign-up"
+            >
+              <Button
+                color="primary"
+                variant="contained"
+              >
+                SIGN UP
+              </Button>
+            </Link>
+          </div>
         </Toolbar>
       </div>
     );

@@ -17,10 +17,7 @@ export default theme => ({
   menuButton: {
     marginLeft: '-4px'
   },
-  notificationsButton: {
-    marginLeft: 'auto'
-  },
   signOutButton: {
-    marginLeft: theme.spacing.unit
+    marginLeft: 'auto'
   }
 });
