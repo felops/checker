@@ -20,6 +20,11 @@ import {
   Typography
 } from '@material-ui/core';
 
+// Shared components
+import {
+  SnackbarStatus
+} from 'components';
+
 // Material icons
 import { ArrowBack as ArrowBackIcon } from '@material-ui/icons';
 
@@ -33,13 +38,18 @@ import styles from './styles';
 import schema from './schema';
 
 // Service methods
-const signIn = () => {
-  return new Promise(resolve => {
-    setTimeout(() => {
-      resolve(true);
-    }, 1500);
-  });
-};
+const signIn = async (email, password) => (
+  await fetch('/api/v1/auth/login', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email , password })
+  })
+    .then(response =>
+      response
+        .json()
+        .then(({data, error}) => ({ status: response.status, data, error }))
+    )
+)
 
 class SignIn extends Component {
   state = {
@@ -54,6 +64,10 @@ class SignIn extends Component {
     errors: {
       email: null,
       password: null
+    },
+    snackbar: {
+      show: false,
+      message: ''
     },
     isValid: false,
     isLoading: false,
@@ -95,17 +109,37 @@ class SignIn extends Component {
 
       this.setState({ isLoading: true });
 
-      await signIn(values.email, values.password);
+      let login = await signIn(values.email, values.password);
 
-      localStorage.setItem('isAuthenticated', true);
-
-      history.push('/dashboard');
+      if(login.status === 200) {
+        this.setState({ isLoading: false });
+        localStorage.setItem('isAuthenticated', true);
+        localStorage.setItem('user', login.data);
+        history.push('/dashboard');
+      } else {
+        this.setState({
+          isLoading: false,
+          snackbar: {
+            show: true,
+            message: login.error
+          }
+        });
+      }
     } catch (error) {
       this.setState({
         isLoading: false,
         serviceError: error
       });
     }
+  };
+
+  handleCloseSnackbar = () => {
+    this.setState({
+      snackbar: {
+        show: false,
+        message: ''
+      }
+    });
   };
 
   render() {
@@ -182,6 +216,7 @@ class SignIn extends Component {
                   >
                     Sign in
                   </Typography>
+                  {/*
                   <Typography
                     className={classes.subtitle}
                     variant="body1"
@@ -213,6 +248,7 @@ class SignIn extends Component {
                   >
                     or login with email address
                   </Typography>
+                  */}
                   <div className={classes.fields}>
                     <TextField
                       className={classes.textField}
@@ -275,6 +311,12 @@ class SignIn extends Component {
                       Sign in now
                     </Button>
                   )}
+                  <SnackbarStatus
+                    message={this.state.snackbar.message}
+                    onClose={this.handleCloseSnackbar}
+                    open={this.state.snackbar.show}
+                    variant="error"
+                  />
                   <Typography
                     className={classes.signUp}
                     variant="body1"

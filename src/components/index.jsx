@@ -7,4 +7,5 @@ export { default as PortletHeader } from './PortletHeader';
 export { default as PortletLabel } from './PortletLabel';
 export { default as PortletToolbar } from './PortletToolbar';
 export { default as SearchInput } from './SearchInput';
+export { default as SnackbarStatus } from './SnackbarStatus';
 export { default as Status } from './Status';

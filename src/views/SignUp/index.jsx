@@ -21,6 +21,11 @@ import {
   Typography
 } from '@material-ui/core';
 
+// Shared components
+import {
+  SnackbarStatus
+} from 'components';
+
 // Material icons
 import { ArrowBack as ArrowBackIcon } from '@material-ui/icons';
 
@@ -36,13 +41,18 @@ import schema from './schema';
 validate.validators.checked = validators.checked;
 
 // Service methods
-const signUp = () => {
-  return new Promise(resolve => {
-    setTimeout(() => {
-      resolve(true);
-    }, 1500);
-  });
-};
+const signUp = async (firstName, lastName, email, password) => (
+  await fetch('/api/v1/user', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(firstName, lastName, email, password)
+  })
+    .then(response =>
+      response
+        .json()
+        .then(({data, error}) => ({ status: response.status, data, error }))
+    )
+)
 
 class SignUp extends Component {
   state = {
@@ -66,6 +76,11 @@ class SignUp extends Component {
       email: null,
       password: null,
       policy: null
+    },
+    snackbar: {
+      show: false,
+      message: '',
+      variant: 'error'
     },
     isValid: false,
     isLoading: false,
@@ -107,20 +122,52 @@ class SignUp extends Component {
 
       this.setState({ isLoading: true });
 
-      await signUp({
+      let registration = await signUp({
         firstName: values.firstName,
         lastName: values.lastName,
         email: values.email,
         password: values.password
       });
 
-      history.push('/sign-in');
+      if(registration.status === 200) {
+        this.setState({
+          isLoading: false,
+          snackbar: {
+            show: true,
+            message: 'Account successfully created! You will be redirected.',
+            variant: 'success'
+          }
+        });
+        setTimeout(() => {
+          history.push('/sign-in');
+        }, 2000);
+      } else {
+        this.setState({
+          isLoading: false,
+          snackbar: {
+            show: true,
+            message: registration.error,
+            variant: 'error'
+          }
+        })
+      }
+
+
     } catch (error) {
       this.setState({
         isLoading: false,
         serviceError: error
       });
     }
+  };
+
+  handleCloseSnackbar = () => {
+    this.setState({
+      snackbar: {
+        show: false,
+        variant: 'error'
+      }
+    });
   };
 
   render() {
@@ -338,6 +385,12 @@ class SignUp extends Component {
                       Sign up now
                     </Button>
                   )}
+                  <SnackbarStatus
+                    message={this.state.snackbar.message}
+                    onClose={this.handleCloseSnackbar}
+                    open={this.state.snackbar.show}
+                    variant={this.state.snackbar.variant}
+                  />
                   <Typography
                     className={classes.signIn}
                     variant="body1"
