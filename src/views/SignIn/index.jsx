@@ -44,11 +44,15 @@ const signIn = async (email, password) => (
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email , password })
   })
-    .then(response =>
-      response
-        .json()
-        .then(({data, error}) => ({ status: response.status, data, error }))
-    )
+    .then(response => {
+      if(response.status === 401) {
+        return { error: 'Invalid email or password.' }
+      } else {
+        return response
+          .json()
+          .then(({data, error}) => ({ status: response.status, user: data, error }))
+      }
+    })
 )
 
 class SignIn extends Component {
@@ -111,12 +115,7 @@ class SignIn extends Component {
 
       let login = await signIn(values.email, values.password);
 
-      if(login.status === 200) {
-        this.setState({ isLoading: false });
-        localStorage.setItem('isAuthenticated', true);
-        localStorage.setItem('user', login.data);
-        history.push('/dashboard');
-      } else {
+      if(login.error) {
         this.setState({
           isLoading: false,
           snackbar: {
@@ -124,6 +123,11 @@ class SignIn extends Component {
             message: login.error
           }
         });
+      } else {
+        this.setState({ isLoading: false });
+        localStorage.setItem('isAuthenticated', true);
+        localStorage.setItem('user', JSON.stringify(login.user));
+        history.push('/dashboard');
       }
     } catch (error) {
       this.setState({

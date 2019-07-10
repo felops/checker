@@ -32,6 +32,16 @@ import {
 import styles from './styles';
 
 class Sidebar extends Component {
+  state = {
+    user: {}
+  }
+
+  componentDidMount() {
+    this.setState({
+      user: JSON.parse(localStorage.getItem('user'))
+    })
+  }
+
   render() {
     const { classes, className } = this.props;
 
@@ -64,13 +74,13 @@ class Sidebar extends Component {
             className={classes.nameText}
             variant="h6"
           >
-            Roman Kutepov
+            {this.state.user.firstName} {this.state.user.lastName}
           </Typography>
           <Typography
             className={classes.bioText}
             variant="caption"
           >
-            Brain Director
+            {this.state.user.email}
           </Typography>
         </div>
         <Divider className={classes.profileDivider} />

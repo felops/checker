@@ -12,7 +12,6 @@ import { Typography } from '@material-ui/core';
 
 // Material icons
 import {
-  ArrowUpward as ArrowUpwardIcon,
   PeopleOutlined as PeopleIcon
 } from '@material-ui/icons';
 
