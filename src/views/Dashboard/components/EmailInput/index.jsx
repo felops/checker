@@ -79,6 +79,7 @@ class EmailValidateInput extends Component {
           noPadding
         >
           <ValidateInput
+            disabledButton={this.state.email.length < 4}
             isLoading={this.state.isLoading}
             onChange={this.onChange}
             onClick={this.handleValidate}

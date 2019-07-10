@@ -10,9 +10,6 @@ import { getLatestEmails } from 'services/email/index';
 import { withStyles } from '@material-ui/core';
 
 // Material components
-import { Typography } from '@material-ui/core';
-
-// Material components
 import { Grid } from '@material-ui/core';
 
 // Shared layouts
