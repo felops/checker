@@ -10,6 +10,9 @@ import { getLatestEmails } from 'services/email/index';
 import { withStyles } from '@material-ui/core';
 
 // Material components
+import { Typography } from '@material-ui/core';
+
+// Material components
 import { Grid } from '@material-ui/core';
 
 // Shared layouts
@@ -17,7 +20,6 @@ import { Dashboard as DashboardLayout } from 'layouts';
 
 // Custom components
 import {
-  Budget,
   EmailInput,
   Users,
   Progress,
@@ -108,6 +110,28 @@ class Dashboard extends Component {
           >
             <Grid
               item
+              lg={6}
+              md={6}
+              xl={8}
+              xs={12}
+            >
+              <EmailInput onValidate={this.onValidate} />
+            </Grid>
+            <Grid
+              item
+              lg={12}
+              md={12}
+              xl={12}
+              xs={12}
+            >
+              <EmailsTable
+                className={classes.item}
+                emails={this.state.emails.emails}
+                isLoading={this.state.emails.isLoading}
+              />
+            </Grid>
+            <Grid
+              item
               lg={4}
               sm={8}
               xl={4}
@@ -132,28 +156,6 @@ class Dashboard extends Component {
               xs={12}
             >
               <Profit className={classes.item} />
-            </Grid>
-            <Grid
-              item
-              lg={6}
-              md={6}
-              xl={8}
-              xs={12}
-            >
-              <EmailInput onValidate={this.onValidate} />
-            </Grid>
-            <Grid
-              item
-              lg={12}
-              md={12}
-              xl={12}
-              xs={12}
-            >
-              <EmailsTable
-                className={classes.item}
-                emails={this.state.emails.emails}
-                isLoading={this.state.emails.isLoading}
-              />
             </Grid>
           </Grid>
         </div>

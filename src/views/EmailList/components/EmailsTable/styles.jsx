@@ -1,8 +1,5 @@
 export default theme => ({
   root: {},
-  portletContent: {
-    minWidth: '600px'
-  },
   progressWrapper: {
     padding: theme.spacing.unit * 3,
     display: 'flex',

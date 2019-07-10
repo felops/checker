@@ -23,6 +23,7 @@ import {
 // Material icons
 import {
   DashboardOutlined as DashboardIcon,
+  MailOutlined as MailIcon,
   InfoOutlined as InfoIcon,
   AccountBoxOutlined as AccountBoxIcon,
 } from '@material-ui/icons';
@@ -89,6 +90,20 @@ class Sidebar extends Component {
             <ListItemText
               classes={{ primary: classes.listItemText }}
               primary="Dashboard"
+            />
+          </ListItem>
+          <ListItem
+            activeClassName={classes.activeListItem}
+            className={classes.listItem}
+            component={NavLink}
+            to="/emails"
+          >
+            <ListItemIcon className={classes.listItemIcon}>
+              <MailIcon />
+            </ListItemIcon>
+            <ListItemText
+              classes={{ primary: classes.listItemText }}
+              primary="Validated Emails"
             />
           </ListItem>
           <ListItem
