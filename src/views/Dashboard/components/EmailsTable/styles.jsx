@@ -14,5 +14,14 @@ export default theme => ({
   statusWrapper: {
     display: 'flex',
     alignItems: 'center'
+  },
+  emptyStateWrapper: {
+    textAlign: 'center'
+  },
+  emptyStateText: {
+    color: '#66788A'
+  },
+  emptyStateTitle: {
+    marginBottom: '1rem'
   }
 });

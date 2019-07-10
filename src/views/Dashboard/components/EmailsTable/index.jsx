@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
 // Externals
 import classNames from 'classnames';
@@ -11,12 +11,14 @@ import { withStyles } from '@material-ui/core';
 
 // Material components
 import {
+  Box,
   CircularProgress,
   Table,
   TableBody,
   TableCell,
   TableHead,
-  TableRow
+  TableRow,
+  Typography
 } from '@material-ui/core';
 
 // Material icons
@@ -47,55 +49,76 @@ class EmailsTable extends Component {
 
     return (
       <Portlet className={rootClassName}>
-        <PortletHeader noDivider>
-          <PortletLabel title="Latest validated mails" />
-        </PortletHeader>
-        <PerfectScrollbar>
-          <PortletContent
-            className={classes.portletContent}
-            noPadding
+        {!isLoading && !showEmails && (
+          <Box
+            className={classes.emptyStateWrapper}
+            m={8}
           >
-            {isLoading && (
-              <div className={classes.progressWrapper}>
-                <CircularProgress />
-              </div>
-            )}
-            {showEmails && (
-              <Table>
-                <TableHead>
-                  <TableRow>
-                    <TableCell align="left">Email</TableCell>
-                    <TableCell align="left">Status</TableCell>
-                    <TableCell/>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {emails.sort((a,b) => moment(b.createdAt).diff(moment(a.createdAt))).map(data => (
-                    <TableRow
-                      className={classes.tableRow}
-                      hover
-                      key={data.id}
-                    >
-                      <TableCell>{data.email}</TableCell>
-                      <TableCell>
-                        <div className={classes.statusWrapper}>
-                          <Chip
-                            color={data.isValid ? 'primary' : ''}
-                            icon={data.isValid ?  <DoneIcon /> : <ClearIcon />}
-                            label={data.isValid ? 'Valid' : 'Invalid'}
-                          />
-                        </div>
-                      </TableCell>
-                      <TableCell>
-                        {moment(data.createdAt).fromNow()}
-                      </TableCell>
+            <Typography
+              className={classes.emptyStateTitle}
+              variant="h4"
+            >
+              Ops, you didn't validate any email yet.
+            </Typography>
+            <Typography
+              className={classes.emptyStateText}
+              variant="subtitle1"
+            >
+              Validate your first email typing an email in the input above.
+            </Typography>
+          </Box>
+        )}
+        {isLoading && (
+          <div className={classes.progressWrapper}>
+            <CircularProgress />
+          </div>
+        )}
+        {showEmails && (
+          <Fragment>
+            <PortletHeader noDivider>
+              <PortletLabel title="Latest validated mails" />
+            </PortletHeader>
+            <PerfectScrollbar>
+              <PortletContent
+                className={classes.portletContent}
+                noPadding
+              >
+                <Table>
+                  <TableHead>
+                    <TableRow>
+                      <TableCell align="left">Email</TableCell>
+                      <TableCell align="left">Status</TableCell>
+                      <TableCell/>
                     </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            )}
-          </PortletContent>
-        </PerfectScrollbar>
+                  </TableHead>
+                  <TableBody>
+                    {emails.sort((a,b) => moment(b.createdAt).diff(moment(a.createdAt))).map(data => (
+                      <TableRow
+                        className={classes.tableRow}
+                        hover
+                        key={data.id}
+                      >
+                        <TableCell>{data.email}</TableCell>
+                        <TableCell>
+                          <div className={classes.statusWrapper}>
+                            <Chip
+                              color={data.isValid ? 'primary' : ''}
+                              icon={data.isValid ?  <DoneIcon /> : <ClearIcon />}
+                              label={data.isValid ? 'Valid' : 'Invalid'}
+                            />
+                          </div>
+                        </TableCell>
+                        <TableCell>
+                          {moment(data.createdAt).fromNow()}
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </PortletContent>
+            </PerfectScrollbar>
+          </Fragment>
+        )}
       </Portlet>
     );
   }

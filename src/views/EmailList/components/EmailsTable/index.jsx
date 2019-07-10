@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 // Externals
 import classNames from 'classnames';
@@ -11,12 +12,15 @@ import { withStyles } from '@material-ui/core';
 
 // Material components
 import {
+  Box,
+  Button,
   CircularProgress,
   Table,
   TableBody,
   TableCell,
   TableHead,
-  TableRow
+  TableRow,
+  Typography
 } from '@material-ui/core';
 
 // Material icons
@@ -51,6 +55,30 @@ class EmailsTable extends Component {
               <div className={classes.progressWrapper}>
                 <CircularProgress />
               </div>
+            )}
+            {!isLoading && !showEmails && (
+              <Box
+                className={classes.emptyStateWrapper}
+                m={8}
+              >
+                <Box m={5}>
+                  <Typography
+                    className={classes.emptyStateTitle}
+                    variant="h4"
+                  >
+                    Ops, you didn't validate any email yet.
+                  </Typography>
+                </Box>
+                <Link to="/dashboard">
+                  <Button
+                    className={classes.button}
+                    color="primary"
+                    variant="contained"
+                  >
+                    VALIDATE MY FIRST EMAIL
+                  </Button>
+                </Link>
+              </Box>
             )}
             {showEmails && (
               <Table>

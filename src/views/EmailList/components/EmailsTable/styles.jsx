@@ -11,5 +11,11 @@ export default theme => ({
   statusWrapper: {
     display: 'flex',
     alignItems: 'center'
+  },
+  emptyStateWrapper: {
+    textAlign: 'center'
+  },
+  emptyStateTitle: {
+    color: '#66788A'
   }
 });
