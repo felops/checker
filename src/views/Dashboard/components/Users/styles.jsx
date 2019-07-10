@@ -28,19 +28,5 @@ export default theme => ({
     fontSize: '2rem',
     height: '2rem',
     width: '2rem'
-  },
-  footer: {
-    marginTop: theme.spacing.unit * 2,
-    display: 'flex',
-    alignItems: 'center'
-  },
-  difference: {
-    alignItems: 'center',
-    color: theme.palette.success.dark,
-    display: 'inline-flex',
-    fontWeight: 700
-  },
-  caption: {
-    marginLeft: theme.spacing.unit
   }
 });

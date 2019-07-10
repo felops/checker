@@ -22,9 +22,7 @@ import {
 } from '@material-ui/core';
 
 // Shared components
-import {
-  SnackbarStatus
-} from 'components';
+import { SnackbarStatus } from 'components';
 
 // Material icons
 import { ArrowBack as ArrowBackIcon } from '@material-ui/icons';
@@ -164,8 +162,8 @@ class SignUp extends Component {
   handleCloseSnackbar = () => {
     this.setState({
       snackbar: {
-        show: false,
-        variant: 'error'
+        ...this.state.snackbar,
+        show: false
       }
     });
   };

@@ -20,5 +20,11 @@ export default theme => ({
     fontSize: '14px',
     lineHeight: '16px',
     letterSpacing: '-0.05px'
+  },
+  divider: {
+    width: 1,
+    height: 28,
+    margin: 4,
+    marginRight: 10,
   }
 });

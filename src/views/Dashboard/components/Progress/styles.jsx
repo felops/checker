@@ -29,8 +29,5 @@ export default theme => ({
     fontSize: '2rem',
     height: '2rem',
     width: '2rem'
-  },
-  footer: {
-    marginTop: theme.spacing.unit * 3
   }
 });

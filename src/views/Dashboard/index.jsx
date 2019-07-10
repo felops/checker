@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 // Externals
 import PropTypes from 'prop-types';
 
+// Shared services
+import { getLatestEmails } from 'services/email/index';
+
 // Material helpers
 import { withStyles } from '@material-ui/core';
 
@@ -15,11 +18,15 @@ import { Dashboard as DashboardLayout } from 'layouts';
 // Custom components
 import {
   Budget,
+  EmailInput,
   Users,
   Progress,
   Profit,
-  OrdersTable
+  EmailsTable
 } from './components';
+
+// Shared components
+import { SnackbarStatus } from 'components';
 
 // Component styles
 const styles = theme => ({
@@ -32,6 +39,63 @@ const styles = theme => ({
 });
 
 class Dashboard extends Component {
+  state = {
+    emails: {
+      isLoading: true,
+      emails: [],
+    },
+    snackbar: {
+      show: false,
+      message: '',
+      variant: 'error'
+    },
+  }
+
+  componentDidMount() {
+    this.getLatestEmails();
+  }
+
+  async getLatestEmails() {
+    try {
+      this.setState({ isLoading: true });
+
+      const { emails } = await getLatestEmails();
+
+      this.setState({
+        emails: {
+          isLoading: false,
+          emails
+        }
+      });
+    } catch (error) {
+      this.setState({
+        isLoading: false,
+        error
+      });
+    }
+  }
+
+  onValidate = emailData => {
+    let { email, isValid } = emailData
+
+    this.setState({
+      snackbar: {
+        show: true,
+        message: isValid ? email + ' is a valid email!' : email + ' is a invalid email.',
+        variant: isValid ? 'success' : 'error'
+      }
+    }, () => this.getLatestEmails())
+  }
+
+  handleCloseSnackbar = () => {
+    this.setState({
+      snackbar: {
+        ...this.state.snackbar,
+        show: false,
+      }
+    });
+  };
+
   render() {
     const { classes } = this.props;
 
@@ -44,39 +108,39 @@ class Dashboard extends Component {
           >
             <Grid
               item
-              lg={3}
-              sm={6}
-              xl={3}
-              xs={12}
-            >
-              <Budget className={classes.item} />
-            </Grid>
-            <Grid
-              item
-              lg={3}
-              sm={6}
-              xl={3}
+              lg={4}
+              sm={8}
+              xl={4}
               xs={12}
             >
               <Users className={classes.item} />
             </Grid>
             <Grid
               item
-              lg={3}
-              sm={6}
-              xl={3}
+              lg={4}
+              sm={8}
+              xl={4}
               xs={12}
             >
               <Progress className={classes.item} />
             </Grid>
             <Grid
               item
-              lg={3}
-              sm={6}
-              xl={3}
+              lg={4}
+              sm={8}
+              xl={4}
               xs={12}
             >
               <Profit className={classes.item} />
+            </Grid>
+            <Grid
+              item
+              lg={6}
+              md={6}
+              xl={8}
+              xs={12}
+            >
+              <EmailInput onValidate={this.onValidate} />
             </Grid>
             <Grid
               item
@@ -85,10 +149,20 @@ class Dashboard extends Component {
               xl={12}
               xs={12}
             >
-              <OrdersTable className={classes.item} />
+              <EmailsTable
+                className={classes.item}
+                emails={this.state.emails.emails}
+                isLoading={this.state.emails.isLoading}
+              />
             </Grid>
           </Grid>
         </div>
+        <SnackbarStatus
+          message={this.state.snackbar.message}
+          onClose={this.handleCloseSnackbar}
+          open={this.state.snackbar.show}
+          variant={this.state.snackbar.variant}
+        />
       </DashboardLayout>
     );
   }

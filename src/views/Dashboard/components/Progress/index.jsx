@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core';
 
 // Material components
-import { Typography, LinearProgress } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 
 // Material icons
 import { InsertChartOutlined as InsertChartIcon } from '@material-ui/icons';
@@ -48,12 +48,6 @@ class Progress extends Component {
           <div className={classes.iconWrapper}>
             <InsertChartIcon className={classes.icon} />
           </div>
-        </div>
-        <div className={classes.footer}>
-          <LinearProgress
-            value={75.5}
-            variant="determinate"
-          />
         </div>
       </Paper>
     );
