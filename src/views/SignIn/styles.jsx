@@ -30,13 +30,6 @@ export default theme => ({
     color: theme.palette.common.white,
     fontWeight: 300
   },
-  name: {
-    marginTop: theme.spacing.unit * 3,
-    color: theme.palette.common.white
-  },
-  bio: {
-    color: theme.palette.common.white
-  },
   contentWrapper: {},
   content: {
     height: '100%',
