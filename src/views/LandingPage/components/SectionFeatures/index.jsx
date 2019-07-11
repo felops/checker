@@ -26,7 +26,6 @@ class SectionFeatures extends Component {
       <Fragment>
         <Title text="Features" />
         <Grid
-          alignItems="center"
           container
           justify="center"
           spacing={10}
