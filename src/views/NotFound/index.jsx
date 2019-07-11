@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 // Externals
 import PropTypes from 'prop-types';
@@ -7,7 +8,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core';
 
 // Material components
-import { Grid, Typography } from '@material-ui/core';
+import { Box, Grid, Typography } from '@material-ui/core';
 
 // Component styles
 const styles = theme => ({
@@ -43,12 +44,14 @@ class NotFound extends Component {
             xs={12}
           >
             <div className={classes.content}>
-              <Typography variant="h1">
-                404: The page you are looking for isn’t here
-              </Typography>
+              <Box p={2}>
+                <Typography variant="h1">
+                  404: The page you are looking for isn’t here
+                </Typography>
+              </Box>
               <Typography variant="subtitle2">
-                You either tried some shady route or you came here by mistake.
-                Whichever it is, try using the navigation
+                You either typed wrong or you came here by mistake.
+                Whichever it is, <Link to="/">click here</Link> to go back to our site.
               </Typography>
               <img
                 alt="Under development"
