@@ -77,9 +77,5 @@ export default theme => ({
   listItemText: {
     fontWeight: 500,
     color: theme.palette.text.secondary
-  },
-  listDivider: {
-    marginBottom: theme.spacing.unit * 2,
-    marginTop: theme.spacing.unit * 2
   }
 });

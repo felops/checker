@@ -16,7 +16,6 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
-  ListSubheader,
   Typography
 } from '@material-ui/core';
 
@@ -24,8 +23,6 @@ import {
 import {
   DashboardOutlined as DashboardIcon,
   MailOutlined as MailIcon,
-  InfoOutlined as InfoIcon,
-  AccountBoxOutlined as AccountBoxIcon,
 } from '@material-ui/icons';
 
 // Component styles
@@ -114,45 +111,6 @@ class Sidebar extends Component {
             <ListItemText
               classes={{ primary: classes.listItemText }}
               primary="Validated Emails"
-            />
-          </ListItem>
-          <ListItem
-            activeClassName={classes.activeListItem}
-            className={classes.listItem}
-            component={NavLink}
-            to="/account"
-          >
-            <ListItemIcon className={classes.listItemIcon}>
-              <AccountBoxIcon />
-            </ListItemIcon>
-            <ListItemText
-              classes={{ primary: classes.listItemText }}
-              primary="Account"
-            />
-          </ListItem>
-        </List>
-        <Divider className={classes.listDivider} />
-        <List
-          component="div"
-          disablePadding
-          subheader={
-            <ListSubheader className={classes.listSubheader}>
-              Support
-            </ListSubheader>
-          }
-        >
-          <ListItem
-            className={classes.listItem}
-            component="a"
-            href="https://devias.io/contact-us"
-            target="_blank"
-          >
-            <ListItemIcon className={classes.listItemIcon}>
-              <InfoIcon />
-            </ListItemIcon>
-            <ListItemText
-              classes={{ primary: classes.listItemText }}
-              primary="Customer support"
             />
           </ListItem>
         </List>

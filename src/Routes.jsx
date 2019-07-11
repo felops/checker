@@ -5,8 +5,6 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import LandingPage from './views/LandingPage';
 import Dashboard from './views/Dashboard';
 import EmailList from './views/EmailList';
-import Account from './views/Account';
-import Settings from './views/Settings';
 import SignUp from './views/SignUp';
 import SignIn from './views/SignIn';
 import NotFound from './views/NotFound';
@@ -29,16 +27,6 @@ export default class Routes extends Component {
           component={EmailList}
           exact
           path="/emails"
-        />
-        <Route
-          component={Account}
-          exact
-          path="/account"
-        />
-        <Route
-          component={Settings}
-          exact
-          path="/settings"
         />
         <Route
           component={SignUp}
