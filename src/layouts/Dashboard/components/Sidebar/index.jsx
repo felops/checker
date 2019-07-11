@@ -30,12 +30,20 @@ import styles from './styles';
 
 class Sidebar extends Component {
   state = {
-    user: {}
+    user: {
+      firstName: '',
+      lastName: '',
+      fullName: ''
+    }
   }
 
   componentDidMount() {
+    let user = JSON.parse(localStorage.getItem('user'))
     this.setState({
-      user: JSON.parse(localStorage.getItem('user'))
+      user: {
+        ...user,
+        fullName: user.firstName + ' ' + user.lastName
+      }
     })
   }
 
@@ -62,16 +70,17 @@ class Sidebar extends Component {
         <div className={classes.profile}>
           <Link to="/account">
             <Avatar
-              alt="Roman Kutepov"
+              alt={this.state.user.fullName}
               className={classes.avatar}
-              src="/images/avatars/avatar_1.png"
-            />
+            >
+              {this.state.user.firstName.substr(0,1)}{this.state.user.lastName.substr(0,1)}
+            </Avatar>
           </Link>
           <Typography
             className={classes.nameText}
             variant="h6"
           >
-            {this.state.user.firstName} {this.state.user.lastName}
+            {this.state.user.fullName}
           </Typography>
           <Typography
             className={classes.bioText}

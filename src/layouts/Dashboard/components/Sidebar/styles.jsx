@@ -30,6 +30,7 @@ export default theme => ({
     minHeight: 'fit-content'
   },
   avatar: {
+    fontSize: '3rem',
     width: '100px',
     height: '100px'
   },
