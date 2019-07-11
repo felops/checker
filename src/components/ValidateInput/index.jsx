@@ -35,6 +35,7 @@ const ValidateInput = props => {
       <Divider className={classes.divider} />
       <Input
         {...rest}
+        autoFocus
         className={classes.input}
         disableUnderline
         onChange={onChange}
