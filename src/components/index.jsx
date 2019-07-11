@@ -7,5 +7,6 @@ export { default as PortletLabel } from './PortletLabel';
 export { default as PortletToolbar } from './PortletToolbar';
 export { default as SearchInput } from './SearchInput';
 export { default as SnackbarStatus } from './SnackbarStatus';
+export { default as Title } from './Title';
 export { default as Status } from './Status';
 export { default as ValidateInput } from './ValidateInput';

@@ -12,6 +12,7 @@ import { withStyles } from '@material-ui/core';
 // Material components
 import {
   Box,
+  Chip,
   CircularProgress,
   Table,
   TableBody,
@@ -26,8 +27,6 @@ import {
   Done as DoneIcon,
   Clear as ClearIcon
 } from '@material-ui/icons';
-
-import Chip from '@material-ui/core/Chip';
 
 // Shared components
 import {

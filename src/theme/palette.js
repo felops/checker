@@ -9,13 +9,13 @@ export default {
   },
   primary: {
     contrastText: white,
-    main: '#0767DB',
+    main: '#6c63ff',
     light: '#F6F9FD',
-    dark: '#0B48A0'
+    dark: '#564fcc'
   },
   secondary: {
     contrastText: white,
-    main: '#7d58ff',
+    main: '#21ce99',
     light: '',
     dark: '#37248F'
   },

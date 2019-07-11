@@ -22,6 +22,7 @@ export default theme => ({
     color: '#66788A'
   },
   emptyStateTitle: {
+    color: '#66788A',
     marginBottom: '1rem'
   }
 });

@@ -7,17 +7,25 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core';
 
 // Material components
-import { Grid } from '@material-ui/core';
+import {
+  Container
+} from '@material-ui/core';
 
 // Shared layouts
 import { LandingPage as LandingPageLayout } from 'layouts';
 
+// Custom components
+import {
+  SectionHero,
+  SectionHow,
+  SectionFeatures,
+  SectionWhy,
+  SectionPricing,
+  SectionTeam
+} from './components';
+
 // Component styles
-const styles = theme => ({
-  root: {
-    padding: theme.spacing.unit * 4
-  }
-});
+import styles from './style';
 
 class Account extends Component {
   state = { tabIndex: 0 };
@@ -27,14 +35,32 @@ class Account extends Component {
 
     return (
       <LandingPageLayout>
-        <div className={classes.root}>
-          <Grid
-            container
-            spacing={4}
-          >
-            <p>Welcome Back!</p>
-          </Grid>
-        </div>
+        <Container
+          className={classes.root}
+          maxWidth="xl"
+        >
+          <SectionHero />
+        </Container>
+        <Container
+          className={classes.root}
+          maxWidth="lg"
+        >
+          <section id="how">
+            <SectionHow />
+          </section>
+          <section id="features">
+            <SectionFeatures />
+          </section>
+          <section id="why">
+            <SectionWhy />
+          </section>
+          <section id="pricing">
+            <SectionPricing />
+          </section>
+          <section id="team">
+            <SectionTeam />
+          </section>
+        </Container>
       </LandingPageLayout>
     );
   }

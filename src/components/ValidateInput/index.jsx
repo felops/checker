@@ -22,7 +22,7 @@ import { MailOutlined as MailIcon } from '@material-ui/icons';
 import styles from './styles';
 
 const ValidateInput = props => {
-  const { classes, className, style, isLoading, onClick, onChange, disabledButton, ...rest } = props;
+  const { classes, className, style, isLoading, onClick, onChange, disabledButton, value, ...rest } = props;
 
   const rootClassName = classNames(classes.root, className);
 
@@ -39,6 +39,7 @@ const ValidateInput = props => {
         disableUnderline
         onChange={onChange}
         placeholder="Enter single email for validating"
+        value={value}
       />
       {!isLoading &&
         <Button
@@ -66,7 +67,8 @@ ValidateInput.propTypes = {
   isLoading: PropTypes.bool,
   onChange: PropTypes.func,
   onClick: PropTypes.func,
-  style: PropTypes.object
+  style: PropTypes.object,
+  value: PropTypes.string
 };
 
 ValidateInput.defaultProps = {

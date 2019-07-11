@@ -62,7 +62,7 @@ class UserList extends Component {
         emails: emails,
         filteredEmails: emails.filter(e => e.email.includes(filter))
       }
-    }, ()=> console.log(this.state))
+    })
   }
 
   render() {

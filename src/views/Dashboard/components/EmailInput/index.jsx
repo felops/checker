@@ -44,7 +44,10 @@ class EmailValidateInput extends Component {
       let email = await validateEmail(this.state.email)
 
       if(email.status === 200) {
-        this.setState({ isLoading: false });
+        this.setState({
+          email: '',
+          isLoading: false
+        });
 
         if(this.props.onValidate) {
           this.props.onValidate(email.data)
@@ -83,6 +86,7 @@ class EmailValidateInput extends Component {
             isLoading={this.state.isLoading}
             onChange={this.onChange}
             onClick={this.handleValidate}
+            value={this.state.email}
           />
         </PortletContent>
       </Portlet>
