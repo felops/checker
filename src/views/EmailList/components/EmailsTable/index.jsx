@@ -61,7 +61,11 @@ class EmailsTable extends Component {
                 className={classes.emptyStateWrapper}
                 m={8}
               >
-                <Box m={5}>
+                <img
+                  alt="empty"
+                  src="images/empty.png"
+                />
+                <Box m={3}>
                   <Typography
                     className={classes.emptyStateTitle}
                     variant="h4"

@@ -23,6 +23,7 @@ export default theme => ({
   },
   emptyStateTitle: {
     color: '#66788A',
-    marginBottom: '1rem'
+    marginTop: '1rem',
+    marginBottom: '0.5rem',
   }
 });

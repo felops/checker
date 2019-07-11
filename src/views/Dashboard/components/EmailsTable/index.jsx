@@ -53,6 +53,10 @@ class EmailsTable extends Component {
             className={classes.emptyStateWrapper}
             m={8}
           >
+            <img
+              alt="empty"
+              src="images/empty.png"
+            />
             <Typography
               className={classes.emptyStateTitle}
               variant="h4"
