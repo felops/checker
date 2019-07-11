@@ -21,7 +21,7 @@ import styles from './styles';
 class SectionHow extends Component {
   render() {
     const { classes } = this.props;
-    
+
     return (
       <Fragment>
         <Title text="How it Works" />
@@ -29,7 +29,6 @@ class SectionHow extends Component {
           alignItems="center"
           container
           justify="center"
-          spacing={3}
           spacing={10}
         >
           <Grid
