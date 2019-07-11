@@ -4,7 +4,7 @@ export default theme => ({
     minWidth: '600px'
   },
   progressWrapper: {
-    padding: theme.spacing.unit * 3,
+    padding: theme.spacing(3),
     display: 'flex',
     justifyContent: 'center'
   },

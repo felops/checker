@@ -77,10 +77,7 @@ class EmailValidateInput extends Component {
 
     return (
       <Portlet className={rootClassName}>
-        <PortletContent
-          className={classes.portletContent}
-          noPadding
-        >
+        <PortletContent noPadding>
           <ValidateInput
             disabledButton={this.state.email.length < 4}
             isLoading={this.state.isLoading}

@@ -3,6 +3,6 @@ export default theme => ({
     padding: '2rem'
   },
   content: {
-    marginTop: theme.spacing.unit * 2
+    marginTop: theme.spacing(2)
   }
 });

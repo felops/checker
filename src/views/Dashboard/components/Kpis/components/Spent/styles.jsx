@@ -2,7 +2,7 @@ export default theme => ({
   root: {
     backgroundColor: theme.palette.primary.main,
     borderColor: theme.palette.primary.main,
-    padding: theme.spacing.unit * 3
+    padding: theme.spacing(3)
   },
   content: {
     display: 'flex',
@@ -14,7 +14,7 @@ export default theme => ({
     color: theme.palette.common.white
   },
   value: {
-    marginTop: theme.spacing.unit,
+    marginTop: theme.spacing(1),
     color: theme.palette.common.white
   },
   iconWrapper: {

@@ -24,7 +24,7 @@ import styles from './styles';
 
 class ValidEmails extends Component {
   render() {
-    const { classes, className, valid, isLoading, ...rest } = this.props;
+    const { classes, className, totalValid, isLoading, ...rest } = this.props;
 
     const rootClassName = classNames(classes.root, className);
 
@@ -52,7 +52,7 @@ class ValidEmails extends Component {
                 className={classes.value}
                 variant="h3"
               >
-                {valid}
+                {totalValid}
               </Typography>
             }
           </div>
@@ -69,7 +69,7 @@ ValidEmails.propTypes = {
   className: PropTypes.string,
   classes: PropTypes.object.isRequired,
   isLoading: PropTypes.bool,
-  valid: PropTypes.string
+  totalValid: PropTypes.number
 };
 
 export default withStyles(styles)(ValidEmails);

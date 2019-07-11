@@ -28,7 +28,7 @@ export default class Kpis extends Component {
         >
           <TotalEmails
             isLoading={isLoading}
-            total={totalEmails}
+            totalEmails={totalEmails}
           />
         </Grid>
         <Grid
@@ -40,7 +40,7 @@ export default class Kpis extends Component {
         >
           <ValidEmails
             isLoading={isLoading}
-            valid={validEmails}
+            totalValid={validEmails}
           />
         </Grid>
         <Grid
@@ -62,6 +62,6 @@ export default class Kpis extends Component {
 
 Kpis.propTypes = {
   isLoading: PropTypes.bool,
-  totalEmails: PropTypes.string,
-  validEmails: PropTypes.string
+  totalEmails: PropTypes.number,
+  validEmails: PropTypes.number
 };

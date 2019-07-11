@@ -26,7 +26,7 @@ import styles from './styles';
 
 class TotalEmails extends Component {
   render() {
-    const { classes, className, total, isLoading, ...rest } = this.props;
+    const { classes, className, totalEmails, isLoading, ...rest } = this.props;
 
     const rootClassName = classNames(classes.root, className);
 
@@ -54,7 +54,7 @@ class TotalEmails extends Component {
                 className={classes.value}
                 variant="h3"
               >
-                {total}
+                {totalEmails}
               </Typography>
             }
           </div>
@@ -71,7 +71,7 @@ TotalEmails.propTypes = {
   className: PropTypes.string,
   classes: PropTypes.object.isRequired,
   isLoading: PropTypes.bool,
-  total: PropTypes.string
+  totalEmails: PropTypes.number
 };
 
 export default withStyles(styles)(TotalEmails);

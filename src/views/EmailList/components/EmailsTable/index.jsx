@@ -100,7 +100,7 @@ class EmailsTable extends Component {
                       <TableCell>
                         <div className={classes.statusWrapper}>
                           <Chip
-                            color={data.isValid ? 'primary' : ''}
+                            color={data.isValid ? 'primary' : 'default'}
                             icon={data.isValid ?  <DoneIcon /> : <ClearIcon />}
                             label={data.isValid ? 'Valid' : 'Invalid'}
                           />
@@ -124,7 +124,7 @@ class EmailsTable extends Component {
 EmailsTable.propTypes = {
   className: PropTypes.string,
   classes: PropTypes.object.isRequired,
-  emails: PropTypes.object.isRequired,
+  emails: PropTypes.array,
   emailsTotal: PropTypes.number,
   isLoading: PropTypes.bool
 };

@@ -61,7 +61,7 @@ class SectionHow extends Component {
             <Typography variant="h4">
               EMAIL VALIDATION
             </Typography>
-            <Typography className={[classes.text, classes.floatRight]}>
+            <Typography className={classes.textRight}>
               Our system work to assure that the inserted email is valid
             </Typography>
           </Grid>

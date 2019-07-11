@@ -28,6 +28,8 @@ import {
 // Component styles
 import styles from './styles';
 
+const ForwardNavLink = React.forwardRef((props, ref) => <NavLink {...props} innerRef={ref} />);
+
 class Sidebar extends Component {
   state = {
     user: {
@@ -97,7 +99,7 @@ class Sidebar extends Component {
           <ListItem
             activeClassName={classes.activeListItem}
             className={classes.listItem}
-            component={NavLink}
+            component={ForwardNavLink}
             to="/dashboard"
           >
             <ListItemIcon className={classes.listItemIcon}>
@@ -111,7 +113,7 @@ class Sidebar extends Component {
           <ListItem
             activeClassName={classes.activeListItem}
             className={classes.listItem}
-            component={NavLink}
+            component={ForwardNavLink}
             to="/emails"
           >
             <ListItemIcon className={classes.listItemIcon}>

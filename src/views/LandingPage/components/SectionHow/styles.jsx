@@ -5,7 +5,10 @@ export default () => ({
   textAlignRight: {
     textAlign: 'right'
   },
-  floatRight: {
+  textRight: {
+    fontSize: '1.2rem',
+    marginTop: '1.5rem',
+    maxWidth: '50%',
     float: 'right'
   },
   image: {
