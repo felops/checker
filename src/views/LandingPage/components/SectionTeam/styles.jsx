@@ -1,6 +1,6 @@
 export default theme => ({
   gridTeam: {
-    marginTop: '5rem'
+    marginTop: '0.5rem'
   },
   avatar: {
     margin: 'auto',

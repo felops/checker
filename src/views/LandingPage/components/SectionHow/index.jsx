@@ -30,6 +30,7 @@ class SectionHow extends Component {
           container
           justify="center"
           spacing={3}
+          spacing={10}
         >
           <Grid
             className={classes.textAlignRight}

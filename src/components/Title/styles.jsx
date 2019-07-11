@@ -1,7 +1,7 @@
 export default theme => ({
   separator: {
     width: '6rem',
-    margin: '2rem',
+    margin: '2rem 2rem 5rem',
     height: '0.55rem',
     borderRadius: '5px',
     display: 'inline-block',
