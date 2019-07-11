@@ -1,14 +1,11 @@
-export default () => ({
+export default theme => ({
   textAlignLeft: {
     textAlign: 'left'
   },
   textAlignRight: {
     textAlign: 'right'
   },
-  textRight: {
-    fontSize: '1.2rem',
-    marginTop: '1.5rem',
-    maxWidth: '50%',
+  floatRight: {
     float: 'right'
   },
   image: {
@@ -18,6 +15,8 @@ export default () => ({
   text: {
     fontSize: '1.2rem',
     marginTop: '1.5rem',
-    maxWidth: '50%'
+    maxWidth: '50%',
+    lineHeight: '1.8rem',
+    color: theme.palette.text.secondary
   }
 });

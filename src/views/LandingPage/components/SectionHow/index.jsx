@@ -21,7 +21,7 @@ import styles from './styles';
 class SectionHow extends Component {
   render() {
     const { classes } = this.props;
-
+    
     return (
       <Fragment>
         <Title text="How it Works" />
@@ -50,7 +50,7 @@ class SectionHow extends Component {
               INPUT THE EMAILS
             </Typography>
             <Typography className={classes.text}>
-              You input the email you would like to valdiate in our system
+              Input the email you would like to validate in our system.
             </Typography>
           </Grid>
           <Grid
@@ -61,8 +61,10 @@ class SectionHow extends Component {
             <Typography variant="h4">
               EMAIL VALIDATION
             </Typography>
-            <Typography className={classes.textRight}>
-              Our system work to assure that the inserted email is valid
+            <Typography
+              className={classes.text + ' ' + classes.floatRight}
+            >
+              Our system work to assure that the inserted email is valid.
             </Typography>
           </Grid>
           <Grid
