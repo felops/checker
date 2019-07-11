@@ -18,8 +18,8 @@ import {
 import styles from './styles';
 
 // Service methods
-const validateEmail = async (email) => (
-  await fetch('/api/v1/email/validate', {
+const validateEmail = email => (
+  fetch('/api/v1/email/validate', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email })

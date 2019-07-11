@@ -39,8 +39,8 @@ import schema from './schema';
 validate.validators.checked = validators.checked;
 
 // Service methods
-const signUp = async (firstName, lastName, email, password) => (
-  await fetch('/api/v1/user', {
+const signUp = (firstName, lastName, email, password) => (
+  fetch('/api/v1/user', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(firstName, lastName, email, password)
