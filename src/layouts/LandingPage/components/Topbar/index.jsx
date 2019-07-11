@@ -35,7 +35,7 @@ class Topbar extends Component {
           <LinkScroll
             className={classes.cursorPointer}
             duration={500}
-            offset={-150}
+            offset={-100}
             smooth
             spy
             to="content"
@@ -51,7 +51,7 @@ class Topbar extends Component {
               activeClass={classes.headerMenuActive}
               className={classes.headerMenu}
               duration={500}
-              offset={-150}
+              offset={-100}
               smooth
               spy
               to="how"
@@ -62,7 +62,7 @@ class Topbar extends Component {
               activeClass={classes.headerMenuActive}
               className={classes.headerMenu}
               duration={500}
-              offset={-150}
+              offset={-100}
               smooth
               spy
               to="features"
@@ -74,7 +74,7 @@ class Topbar extends Component {
               className={classes.headerMenu}
               duration={500}
               isDynamic
-              offset={-150}
+              offset={-100}
               smooth
               spy
               to="why"
@@ -85,7 +85,7 @@ class Topbar extends Component {
               activeClass={classes.headerMenuActive}
               className={classes.headerMenu}
               duration={500}
-              offset={-150}
+              offset={-100}
               smooth
               spy
               to="pricing"
