@@ -105,7 +105,7 @@ class EmailsTable extends Component {
                         <TableCell>
                           <div className={classes.statusWrapper}>
                             <Chip
-                              color={data.isValid ? 'primary' : 'default'}
+                              color={data.isValid ? 'secondary' : 'default'}
                               icon={data.isValid ?  <DoneIcon /> : <ClearIcon />}
                               label={data.isValid ? 'Valid' : 'Invalid'}
                             />

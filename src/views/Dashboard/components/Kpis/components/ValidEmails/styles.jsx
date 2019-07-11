@@ -16,7 +16,7 @@ export default theme => ({
   },
   iconWrapper: {
     alignItems: 'center',
-    backgroundColor: theme.palette.success.main,
+    backgroundColor: theme.palette.secondary.main,
     borderRadius: '50%',
     display: 'inline-flex',
     height: '4rem',
