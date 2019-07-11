@@ -3,6 +3,7 @@ export const getLatestEmails = () => {
     fetch('/api/v1/email/latest', { methos: 'GET' })
       .then(response => {
         if (response.redirected) {
+          localStorage.setItem('isAuthenticated', false);
           window.location.href = response.url
         } else {
           response
@@ -22,6 +23,7 @@ export const getEmails = () => {
     fetch('/api/v1/email', { methos: 'GET' })
       .then(response => {
         if (response.redirected) {
+          localStorage.setItem('isAuthenticated', false);
           window.location.href = response.url
         } else {
           response
