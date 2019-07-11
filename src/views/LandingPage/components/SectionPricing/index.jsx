@@ -44,7 +44,8 @@ class SectionPricing extends Component {
         >
           <Grid
             item
-            xs={4}
+            md={4}
+            xs={12}
           >
             <Paper className={classes.paper}>
               <Box mb={2}>
@@ -101,7 +102,8 @@ class SectionPricing extends Component {
           </Grid>
           <Grid
             item
-            xs={4}
+            md={4}
+            xs={12}
           >
             <Paper className={classes.paper}>
               <Box mb={2}>
@@ -159,7 +161,8 @@ class SectionPricing extends Component {
           </Grid>
           <Grid
             item
-            xs={4}
+            md={4}
+            xs={12}
           >
             <Paper className={classes.paper}>
               <Box mb={2}>

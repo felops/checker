@@ -4,7 +4,8 @@ export default theme => ({
   },
   list: {
     fontSize: '1rem',
-    lineHeight: '3rem',
+    lineHeight: '1.5rem',
+    margin: '0.6rem 0rem',
     color: theme.palette.text.secondary
   },
   title: {

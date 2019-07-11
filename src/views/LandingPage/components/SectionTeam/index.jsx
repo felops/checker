@@ -35,14 +35,14 @@ class SectionTeam extends Component {
         </Grid>
         <Grid
           alignItems="center"
-          className={classes.gridTeam}
           container
           justify="center"
           spacing={10}
         >
           <Grid
             item
-            xs={4}
+            md={4}
+            xs={12}
           >
             <Paper className={classes.paperTeam}>
               <Avatar
@@ -57,7 +57,8 @@ class SectionTeam extends Component {
           </Grid>
           <Grid
             item
-            xs={4}
+            md={4}
+            xs={12}
           >
             <Paper className={classes.paperTeam}>
               <Avatar
@@ -72,7 +73,8 @@ class SectionTeam extends Component {
           </Grid>
           <Grid
             item
-            xs={4}
+            md={4}
+            xs={12}
           >
             <Paper className={classes.paperTeam}>
               <Avatar

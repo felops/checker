@@ -1,12 +1,16 @@
 export default theme => ({
   sectionHero: {
-    paddingTop: '5rem'
+    margin: '5rem 0rem -6rem'
   },
   gridHero: {
-    padding: '10rem 2rem'
+    minHeight: '85vh'
   },
   image: {
-    maxWidth: '100%'
+    maxWidth: '50vw',
+    maxHeight: '50vh'
+  },
+  centerImage: {
+    textAlign: 'center'
   },
   title: {
     fontSize: '3.5rem',
@@ -19,5 +23,13 @@ export default theme => ({
     margin: '3rem 0rem',
     color: theme.palette.text.secondary
   },
-
+  mobileTitle: {
+    fontSize: '2.5rem',
+    lineHeight: '3rem'
+  },
+  mobileSubtitle: {
+    fontSize: '1.3rem',
+    lineHeight: '2rem',
+    margin: '2rem 0rem'
+  }
 });

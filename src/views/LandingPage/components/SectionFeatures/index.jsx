@@ -32,7 +32,8 @@ class SectionFeatures extends Component {
         >
           <Grid
             item
-            xs={4}
+            md={4}
+            xs={12}
           >
             <div className={classes.imageWrapper}>
               <img
@@ -48,7 +49,8 @@ class SectionFeatures extends Component {
           </Grid>
           <Grid
             item
-            xs={4}
+            md={4}
+            xs={12}
           >
             <div className={classes.imageWrapper}>
               <img
@@ -64,7 +66,8 @@ class SectionFeatures extends Component {
           </Grid>
           <Grid
             item
-            xs={4}
+            md={4}
+            xs={12}
           >
             <div className={classes.imageWrapper}>
               <img

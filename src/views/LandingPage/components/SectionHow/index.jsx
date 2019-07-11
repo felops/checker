@@ -34,7 +34,7 @@ class SectionHow extends Component {
           <Grid
             className={classes.textAlignRight}
             item
-            xs={6}
+            xs={5}
           >
             <img
               alt="mail"
@@ -44,7 +44,7 @@ class SectionHow extends Component {
           </Grid>
           <Grid
             item
-            xs={6}
+            xs={7}
           >
             <Typography variant="h4">
               INPUT THE EMAILS
@@ -56,7 +56,7 @@ class SectionHow extends Component {
           <Grid
             className={classes.textAlignRight}
             item
-            xs={6}
+            xs={7}
           >
             <Typography variant="h4">
               EMAIL VALIDATION
@@ -69,7 +69,7 @@ class SectionHow extends Component {
           </Grid>
           <Grid
             item
-            xs={6}
+            xs={5}
           >
             <img
               alt="mail"
@@ -80,7 +80,7 @@ class SectionHow extends Component {
           <Grid
             className={classes.textAlignRight}
             item
-            xs={6}
+            xs={5}
           >
             <img
               alt="mail"
@@ -90,7 +90,7 @@ class SectionHow extends Component {
           </Grid>
           <Grid
             item
-            xs={6}
+            xs={7}
           >
             <Typography variant="h4">
               READY TO USE

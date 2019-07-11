@@ -1,7 +1,4 @@
 export default theme => ({
-  gridTeam: {
-    marginTop: '0.5rem'
-  },
   avatar: {
     margin: 'auto',
     width: '120px',
@@ -9,6 +6,7 @@ export default theme => ({
     marginTop: '-6rem'
   },
   paperTeam: {
+    marginTop: '2rem',
     padding: '2rem',
     textAlign: 'center',
     boxShadow: '0 10px 30px -10px rgba(0,64,32,.2)'

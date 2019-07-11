@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import { Link as LinkScroll } from 'react-scroll';
@@ -9,7 +9,7 @@ import compose from 'recompose/compose';
 import PropTypes from 'prop-types';
 
 // Material helpers
-import { withStyles } from '@material-ui/core';
+import { withStyles, withWidth } from '@material-ui/core';
 
 // Material components
 import {
@@ -24,10 +24,12 @@ class Topbar extends Component {
   render() {
     const {
       classes,
-      className
+      className,
+      width
     } = this.props;
 
     const rootClassName = classNames(classes.root, className);
+    const isMobile = ['xs', 'sm'].includes(width);
 
     return (
       <div className={rootClassName}>
@@ -47,51 +49,55 @@ class Topbar extends Component {
             />
           </LinkScroll>
           <div className={classes.actionButton}>
-            <LinkScroll
-              activeClass={classes.headerMenuActive}
-              className={classes.headerMenu}
-              duration={500}
-              offset={-100}
-              smooth
-              spy
-              to="how"
-            >
-              How it Works
-            </LinkScroll>
-            <LinkScroll
-              activeClass={classes.headerMenuActive}
-              className={classes.headerMenu}
-              duration={500}
-              offset={-100}
-              smooth
-              spy
-              to="features"
-            >
-              Features
-            </LinkScroll>
-            <LinkScroll
-              activeClass={classes.headerMenuActive}
-              className={classes.headerMenu}
-              duration={500}
-              isDynamic
-              offset={-100}
-              smooth
-              spy
-              to="why"
-            >
-              Why Checker?
-            </LinkScroll>
-            <LinkScroll
-              activeClass={classes.headerMenuActive}
-              className={classes.headerMenu}
-              duration={500}
-              offset={-100}
-              smooth
-              spy
-              to="pricing"
-            >
-              Princing
-            </LinkScroll>
+            {!isMobile && (
+              <Fragment>
+                <LinkScroll
+                  activeClass={classes.headerMenuActive}
+                  className={classes.headerMenu}
+                  duration={500}
+                  offset={-100}
+                  smooth
+                  spy
+                  to="how"
+                >
+                  How it Works
+                </LinkScroll>
+                <LinkScroll
+                  activeClass={classes.headerMenuActive}
+                  className={classes.headerMenu}
+                  duration={500}
+                  offset={-100}
+                  smooth
+                  spy
+                  to="features"
+                >
+                  Features
+                </LinkScroll>
+                <LinkScroll
+                  activeClass={classes.headerMenuActive}
+                  className={classes.headerMenu}
+                  duration={500}
+                  isDynamic
+                  offset={-100}
+                  smooth
+                  spy
+                  to="why"
+                >
+                  Why Checker?
+                </LinkScroll>
+                <LinkScroll
+                  activeClass={classes.headerMenuActive}
+                  className={classes.headerMenu}
+                  duration={500}
+                  offset={-100}
+                  smooth
+                  spy
+                  to="pricing"
+                >
+                  Princing
+                </LinkScroll>
+              </Fragment>
+            )}
             <Link
               className={classes.signInButton}
               to="/sign-in"
@@ -123,10 +129,12 @@ class Topbar extends Component {
 Topbar.propTypes = {
   className: PropTypes.string,
   classes: PropTypes.object.isRequired,
-  history: PropTypes.object.isRequired
+  history: PropTypes.object.isRequired,
+  width: PropTypes.string.isRequired
 };
 
 export default compose(
   withRouter,
-  withStyles(styles)
+  withStyles(styles),
+  withWidth()
 )(Topbar);
