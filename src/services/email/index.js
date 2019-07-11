@@ -1,6 +1,6 @@
 export const getLatestEmails = () => {
   return new Promise(resolve => {
-    fetch('/api/v1/email/latest', { methos: 'GET', redirect: 'follow' })
+    fetch('/api/v1/email/latest', { methos: 'GET' })
       .then(response => {
         if (response.redirected) {
           window.location.href = response.url
@@ -19,7 +19,7 @@ export const getLatestEmails = () => {
 
 export const getEmails = () => {
   return new Promise(resolve => {
-    fetch('/api/v1/email', { methos: 'GET', redirect: 'follow' })
+    fetch('/api/v1/email', { methos: 'GET' })
       .then(response => {
         if (response.redirected) {
           window.location.href = response.url
@@ -33,5 +33,20 @@ export const getEmails = () => {
             })
         }
       })
+  });
+};
+
+export const getEmailsKPI = () => {
+  return new Promise(resolve => {
+    fetch('/api/v1/email/kpi', { methos: 'GET' })
+      .then(response =>
+        response
+          .json()
+          .then(({data}) => {
+            resolve({
+              kpi: data
+            });
+          })
+      )
   });
 };

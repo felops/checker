@@ -1,7 +1,5 @@
 export default theme => ({
   root: {
-    backgroundColor: theme.palette.primary.main,
-    borderColor: theme.palette.primary.main,
     padding: theme.spacing.unit * 3
   },
   content: {
@@ -10,15 +8,15 @@ export default theme => ({
   },
   details: {},
   title: {
-    fontWeight: 700,
-    color: theme.palette.common.white
+    color: theme.palette.text.secondary,
+    fontWeight: 700
   },
   value: {
-    color: theme.palette.common.white
+    marginTop: theme.spacing.unit
   },
   iconWrapper: {
     alignItems: 'center',
-    backgroundColor: theme.palette.common.white,
+    backgroundColor: theme.palette.success.main,
     borderRadius: '50%',
     display: 'inline-flex',
     height: '4rem',
@@ -27,9 +25,9 @@ export default theme => ({
     width: '4rem'
   },
   icon: {
-    color: theme.palette.primary.main,
-    width: '2rem',
+    color: theme.palette.common.white,
+    fontSize: '2rem',
     height: '2rem',
-    fontSize: '2rem'
+    width: '2rem'
   }
 });

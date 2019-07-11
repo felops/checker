@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 // Shared services
-import { getLatestEmails } from 'services/email/index';
+import { getEmailsKPI, getLatestEmails } from 'services/email/index';
 
 // Material helpers
 import { withStyles } from '@material-ui/core';
@@ -18,10 +18,8 @@ import { Dashboard as DashboardLayout } from 'layouts';
 // Custom components
 import {
   EmailInput,
-  Users,
-  Progress,
-  Profit,
-  EmailsTable
+  EmailsTable,
+  Kpis
 } from './components';
 
 // Shared components
@@ -39,6 +37,11 @@ const styles = theme => ({
 
 class Dashboard extends Component {
   state = {
+    kpi: {
+      isLoading: false,
+      totalEmails: 0,
+      validEmails: 0
+    },
     emails: {
       isLoading: true,
       emails: [],
@@ -52,6 +55,7 @@ class Dashboard extends Component {
 
   componentDidMount() {
     this.getLatestEmails();
+    this.getKPIs();
   }
 
   async getLatestEmails() {
@@ -74,6 +78,26 @@ class Dashboard extends Component {
     }
   }
 
+  async getKPIs() {
+    try {
+      this.setState({ kpi: { isLoading: true } });
+
+      const { kpi } = await getEmailsKPI();
+
+      this.setState({
+        kpi: {
+          ...kpi,
+          isLoading: false
+        }
+      });
+    } catch (error) {
+      this.setState({
+        isLoading: false,
+        error
+      });
+    }
+  }
+
   onValidate = emailData => {
     let { email, isValid } = emailData
 
@@ -83,7 +107,10 @@ class Dashboard extends Component {
         message: isValid ? email + ' is a valid email!' : email + ' is a invalid email.',
         variant: isValid ? 'success' : 'error'
       }
-    }, () => this.getLatestEmails())
+    }, () => {
+      this.getLatestEmails()
+      this.getKPIs()
+    })
   }
 
   handleCloseSnackbar = () => {
@@ -105,6 +132,11 @@ class Dashboard extends Component {
             container
             spacing={4}
           >
+            <Kpis
+              isLoading={this.state.kpi.isLoading}
+              totalEmails={this.state.kpi.totalEmails}
+              validEmails={this.state.kpi.validEmails}
+            />
             <Grid
               item
               lg={6}
@@ -126,33 +158,6 @@ class Dashboard extends Component {
                 emails={this.state.emails.emails}
                 isLoading={this.state.emails.isLoading}
               />
-            </Grid>
-            <Grid
-              item
-              lg={4}
-              sm={8}
-              xl={4}
-              xs={12}
-            >
-              <Users className={classes.item} />
-            </Grid>
-            <Grid
-              item
-              lg={4}
-              sm={8}
-              xl={4}
-              xs={12}
-            >
-              <Progress className={classes.item} />
-            </Grid>
-            <Grid
-              item
-              lg={4}
-              sm={8}
-              xl={4}
-              xs={12}
-            >
-              <Profit className={classes.item} />
             </Grid>
           </Grid>
         </div>
