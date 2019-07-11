@@ -78,6 +78,14 @@ class SignIn extends Component {
     submitError: null
   };
 
+  componentDidMount() {
+    const { history } = this.props;
+
+    if(JSON.parse(localStorage.getItem('isAuthenticated')) === true) {
+      history.push('/dashboard');
+    }
+  }
+
   handleBack = () => {
     const { history } = this.props;
 

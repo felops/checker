@@ -42,6 +42,7 @@ class Topbar extends Component {
     fetch('/api/v1/auth/logout', { method: 'GET' })
       .then(() => {
         localStorage.setItem('isAuthenticated', false);
+        localStorage.setItem('user', '');
         history.push('/');
       })
   };
