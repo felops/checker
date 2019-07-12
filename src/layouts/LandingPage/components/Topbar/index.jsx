@@ -45,7 +45,7 @@ class Topbar extends Component {
             <img
               alt="Brainalytica logo"
               className={classes.logoImage}
-              src="/images/logos/brainalytica_logo.svg"
+              src="/images/logo.png"
             />
           </LinkScroll>
           <div className={classes.actionButton}>

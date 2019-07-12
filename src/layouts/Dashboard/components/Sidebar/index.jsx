@@ -59,12 +59,12 @@ class Sidebar extends Component {
         <div className={classes.logoWrapper}>
           <Link
             className={classes.logoLink}
-            to="/"
+            to="/dashboard"
           >
             <img
               alt="Brainalytica logo"
               className={classes.logoImage}
-              src="/images/logos/brainalytica_logo.svg"
+              src="/images/logo.png"
             />
           </Link>
         </div>
