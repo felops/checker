@@ -28,16 +28,10 @@ class SectionTeam extends Component {
       <Fragment>
         <Title text="Meet the Team" />
         <Grid
-          container
-          justify="center"
-        >
-          <div className={classes.separator} />
-        </Grid>
-        <Grid
           alignItems="center"
           container
           justify="center"
-          spacing={10}
+          spacing={8}
         >
           <Grid
             item

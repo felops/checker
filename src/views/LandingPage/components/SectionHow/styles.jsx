@@ -8,6 +8,9 @@ export default theme => ({
   floatRight: {
     float: 'right'
   },
+  marginBottom: {
+    marginBottom: '2rem'
+  },
   image: {
     maxHeight: '10rem',
     maxWidth: '100%'

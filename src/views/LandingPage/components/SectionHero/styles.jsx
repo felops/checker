@@ -1,13 +1,13 @@
 export default theme => ({
   sectionHero: {
-    margin: '5rem 0rem -6rem'
+    margin: '3rem 0rem -6rem'
   },
   gridHero: {
     minHeight: '85vh'
   },
   image: {
-    maxWidth: '50vw',
-    maxHeight: '50vh'
+    maxWidth: '45vw',
+    maxHeight: '45vh'
   },
   centerImage: {
     textAlign: 'center'

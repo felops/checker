@@ -30,6 +30,7 @@ class Topbar extends Component {
 
     const rootClassName = classNames(classes.root, className);
     const isMobile = ['xs', 'sm'].includes(width);
+    const isXSmall = width === 'xs';
 
     return (
       <div className={rootClassName}>
@@ -98,17 +99,19 @@ class Topbar extends Component {
                 </LinkScroll>
               </Fragment>
             )}
-            <Link
-              className={classes.signInButton}
-              to="/sign-in"
-            >
-              <Button
-                color="primary"
-                variant="outlined"
+            {!isXSmall && (
+              <Link
+                className={classes.signInButton}
+                to="/sign-in"
               >
-                SIGN IN
-              </Button>
-            </Link>
+                <Button
+                  color="primary"
+                  variant="outlined"
+                >
+                  SIGN IN
+                </Button>
+              </Link>
+            )}
             <Link
               to="/sign-up"
             >

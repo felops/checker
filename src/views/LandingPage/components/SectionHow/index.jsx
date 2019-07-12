@@ -2,9 +2,10 @@ import React, { Component, Fragment } from 'react';
 
 // Externals
 import PropTypes from 'prop-types';
+import compose from 'recompose/compose';
 
 // Material helpers
-import { withStyles } from '@material-ui/core';
+import { withStyles, withWidth } from '@material-ui/core';
 
 // Material components
 import {
@@ -20,7 +21,8 @@ import styles from './styles';
 
 class SectionHow extends Component {
   render() {
-    const { classes } = this.props;
+    const { classes, width } = this.props;
+    const isMobile = ['xs', 'sm'].includes(width);
 
     return (
       <Fragment>
@@ -29,12 +31,12 @@ class SectionHow extends Component {
           alignItems="center"
           container
           justify="center"
-          spacing={10}
+          spacing={isMobile ? 3 : 5}
         >
           <Grid
-            className={classes.textAlignRight}
+            className={classes.marginBottom + ' ' + classes.textAlignRight}
             item
-            xs={5}
+            xs={6}
           >
             <img
               alt="mail"
@@ -43,8 +45,9 @@ class SectionHow extends Component {
             />
           </Grid>
           <Grid
+            className={classes.marginBottom}
             item
-            xs={7}
+            xs={6}
           >
             <Typography variant="h4">
               INPUT THE EMAILS
@@ -54,9 +57,9 @@ class SectionHow extends Component {
             </Typography>
           </Grid>
           <Grid
-            className={classes.textAlignRight}
+            className={classes.marginBottom + ' ' + classes.textAlignRight}
             item
-            xs={7}
+            xs={6}
           >
             <Typography variant="h4">
               EMAIL VALIDATION
@@ -68,8 +71,9 @@ class SectionHow extends Component {
             </Typography>
           </Grid>
           <Grid
+            className={classes.marginBottom}
             item
-            xs={5}
+            xs={6}
           >
             <img
               alt="mail"
@@ -78,9 +82,9 @@ class SectionHow extends Component {
             />
           </Grid>
           <Grid
-            className={classes.textAlignRight}
+            className={classes.marginBottom + ' ' + classes.textAlignRight}
             item
-            xs={5}
+            xs={6}
           >
             <img
               alt="mail"
@@ -89,8 +93,9 @@ class SectionHow extends Component {
             />
           </Grid>
           <Grid
+            className={classes.marginBottom}
             item
-            xs={7}
+            xs={6}
           >
             <Typography variant="h4">
               READY TO USE
@@ -106,7 +111,11 @@ class SectionHow extends Component {
 }
 
 SectionHow.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  width: PropTypes.string.isRequired
 };
 
-export default withStyles(styles)(SectionHow);
+export default compose(
+  withStyles(styles),
+  withWidth()
+)(SectionHow);

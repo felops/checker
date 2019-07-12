@@ -28,7 +28,7 @@ class SectionFeatures extends Component {
         <Grid
           container
           justify="center"
-          spacing={10}
+          spacing={8}
         >
           <Grid
             item
