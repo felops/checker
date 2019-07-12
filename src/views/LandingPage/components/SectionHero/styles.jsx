@@ -24,8 +24,8 @@ export default theme => ({
     color: theme.palette.text.secondary
   },
   mobileTitle: {
-    fontSize: '2.5rem',
-    lineHeight: '3rem'
+    fontSize: '2rem',
+    lineHeight: '2.5rem'
   },
   mobileSubtitle: {
     fontSize: '1.3rem',
