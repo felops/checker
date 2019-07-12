@@ -41,7 +41,7 @@ class TotalEmails extends Component {
               className={classes.title}
               variant="body2"
             >
-              TOTAL EMAILS
+              VALIDATED EMAILS
             </Typography>
             {isLoading &&
               <CircularProgress
