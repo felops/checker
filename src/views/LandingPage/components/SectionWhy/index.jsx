@@ -24,7 +24,7 @@ class SectionWhy extends Component {
     return (
       <Fragment>
         <Title text="Why Checker" />
-        <Typography className={classes.title}>You may ask why you should use Checker. We ask you: why not? We are just the best option you can get as low as a penny per day.</Typography>
+        <Typography className={classes.title}>You may ask why you should use Checker. We ask you: why not? We are just the best option you can get as low as a cup of coffee per day.</Typography>
         <Typography className={classes.subtile}>If you are not convinced yet, here are some considerations:</Typography>
         <ul className={classes.ul}>
           <li>
@@ -39,7 +39,7 @@ class SectionWhy extends Component {
           </li>
           <li>
             <Typography className={classes.list}>
-              Our services are used by the most innovative company on the world: <a href="http://www.wildrydes.com/">Wild Rydes</a>.
+              Our services are used by the most innovative company in the world: <a href="http://www.wildrydes.com/">Wild Rydes</a>.
             </Typography>
           </li>
         </ul>

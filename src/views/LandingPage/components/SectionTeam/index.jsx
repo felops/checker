@@ -46,7 +46,7 @@ class SectionTeam extends Component {
               />
               <Typography className={classes.name}>Bernardo Rocha</Typography>
               <Typography className={classes.role}>CEO</Typography>
-              <Typography className={classes.description}>Bernardo is the founder the Checker. His idea to create Checker came after several fails in marketing campaigns because of invalid emails.</Typography>
+              <Typography className={classes.description}>Bernardo is the founder of the Checker. His idea to create Checker came after several fails in marketing campaigns because of invalid emails.</Typography>
             </Paper>
           </Grid>
           <Grid
