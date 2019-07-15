@@ -107,7 +107,7 @@ class SectionPricing extends Component {
           >
             <Paper className={classes.paper}>
               <Box mb={2}>
-                <Typography className={classes.plan}>BUSSINESS</Typography>
+                <Typography className={classes.plan}>BUSINESS</Typography>
                 <Typography className={classes.subPlan}>For who is growing</Typography>
               </Box>
               <Divider />
@@ -122,7 +122,7 @@ class SectionPricing extends Component {
                   size="small"
                   variant="outlined"
                 />
-                <Typography className={classes.priceText}>Best option for who has a bussiness and need to validate emails</Typography>
+                <Typography className={classes.priceText}>Best option for who has a business and need to validate emails</Typography>
               </div>
               <Divider />
               <ul className={classes.list}>
